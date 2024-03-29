@@ -1,0 +1,13 @@
+#btn_unfollow {
+    --bs-btn-padding-y: .25rem;
+    --bs-btn-padding-x: .4rem;
+    font-size: .80rem;
+    border-radius: 30px;
+}
+
+#btn_follow {
+    --bs-btn-padding-y: .25rem;
+    --bs-btn-padding-x: .4rem;
+    font-size: .80rem;
+    border-radius: 30px;
+}
