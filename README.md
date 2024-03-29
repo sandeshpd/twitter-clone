@@ -1,5 +1,7 @@
 # twitter-clone
-Basic Twitter clone made with Django and Python.
+This is a basic Twitter clone made with Django and Python. As of now, the site provides fundamental functionalities similar to Twitter, with a simplistic UI.
+
+Please note that the current version of the application does not include any elaborate front-end design. However, future updates may include major enhancements to improve UI & UX.
 
 This app is not yet live. To see how this app works or looks, follow below steps:
 
