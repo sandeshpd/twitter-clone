@@ -35,7 +35,7 @@ This app is not yet live. To see how this app works or looks, follow below steps
 
   `python3 manage.py createsuperuser`
   
-  * Provide necessary info Django askss
+  * Provide necessary info Django asks.
 
 * Run the development server:
 
