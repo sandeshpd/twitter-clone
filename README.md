@@ -8,6 +8,7 @@ This app is not yet live. To see how this app works or looks, follow below steps
 ## Prerequisites:
   * Python 3.x or later installed on your system
   * pip package manager
+  * PgAdmin4 database manager tool, if you have PostgreSQL installed
 
 ## Steps to follow:
 
