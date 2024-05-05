@@ -22,8 +22,10 @@ def home(request):
         tweets = Tweet.objects.all().order_by('-created_at')
         return render(request, 'home.html', {'tweets':tweets, 'form':form})
     else:
-        tweets = Tweet.objects.all().order_by('-created_at')
-        return render(request, 'home.html', {'tweets':tweets})
+        messages.success(request, ('You must log in to proceed.'))
+        return redirect('login')
+        # tweets = Tweet.objects.all().order_by('-created_at')
+        # return render(request, 'home.html', {'tweets':tweets})
 
 
 # List of profiles
@@ -153,7 +155,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ('You Have Been Logged Out.'))
-    return redirect('home')
+    return redirect('login')
 
 # Signing Up User
 def signup_user(request):
@@ -192,6 +194,10 @@ def update_user(request):
         else:
             messages.success(request, ('You must login to proceed.'))
             return redirect('home')
+
+# Change the Password        
+def change_password(request):
+    return render(request, 'change_password.html', {})
         
 # Like or Unlike tweet
 def tweet_like(request, pk):
