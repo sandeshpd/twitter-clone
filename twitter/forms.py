@@ -1,4 +1,5 @@
 from django import forms
+from django.urls import reverse_lazy
 from .models import Tweet, Profile, Comment
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
@@ -53,12 +54,13 @@ class ProfilePicForm(forms.ModelForm):
 
 # User Tweeting form
 class TweetForm(forms.ModelForm):
+    # tb__pfp = forms.ImageField(label='PFP',)
     body = forms.CharField(required=True,
-                           widget=forms.widgets.Textarea(
+                           widget=forms.widgets.TextInput(
                                attrs={
                                    'placeholder': 'What is happening?!',
-                                   'class': 'form-control',
-                                   'style': 'height: 150px; border-color: #484848;',
+                                   'class': 'tweetbox__input',
+                                   'style': 'flex: 1; margin-top: 10px; margin-left: 10px; border: none; outline: none; width: 100%;',
                                }
                            ),
                            label='',
@@ -170,4 +172,4 @@ class UpdateUserForm(UserChangeForm):
         self.fields['username'].help_text = '<span class="form-text text-muted"><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small></span>'
 
         self.fields['password'].label = ''
-        self.fields['password'].help_text = "<p>If you want to update the password, <a href={% url 'change_password'%}>click here</a>.</p>"
+        self.fields['password'].help_text = '<p>If you want to change the password, <a href="{}">click here</a>.</p>'.format(reverse_lazy('change_password'))
