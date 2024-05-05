@@ -7,92 +7,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Home
+        {% endblock %}
+    </title>
 </head>
 
 <body>
     {% block content %}
-    <div class="container text-center">
-        <h1>I can say this is a cheap Twitter!</h1>
+
+    <div class="timeline__header">
+        <h2>Home</h2>
     </div>
-
-    <div class="container">
-        <div class="row justify-content-center align-items-start">
-            <div class="col-8">
-                <br />
-                <!-- TextField to post a Tweet -->
-                {% if form %}
-                <form method=POST>
-                    {% csrf_token %}
-                    {{ form.as_p }}
-
-                    <button type="submit" class="btn btn-secondary" style="float: inline-end;">Post</button>
-                </form>
+    <div class="tweetbox__section">
+        <form method="post">
+            {% csrf_token %}
+            <div class="tweetbox__input__section">
+                {% if tweet.user.profile.profile_picture %}
+                <img src="{{ tweet.user.profile.profile_picture.url }}" alt="PFP" class="tb__pfp">
+                {% else %}
+                <img src="{% static '/images/default_profile.png' %}" alt="PFP" class="tb__pfp">
                 {% endif %}
-                <br /><br />
+                {{ form.as_p }}
             </div>
-        </div>
+            <div class="tweet__btn">
+                <button type="submit" class="tweetPost">Post</button>
+            </div>
+        </form>
     </div>
 
-    <!-- You see all Tweets posted by other users here -->
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                {% for tweet in tweets %}
-                <div class="alert alert-dark" role="alert">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <!-- User Profile Picture, Tweet body, Likes, Comment & Bookmarks -->
-                                {% if tweet.user.profile.profile_picture %}
-                                <img src="{{ tweet.user.profile.profile_picture.url }}" alt="PFP" width="50"
-                                    height="auto" class="rounded-circle">
-                                {% else %}
-                                <img src="{% static 'images/default_profile.png' %}" alt="PFP" width="50" height="auto"
-                                    class="rounded-circle">
-                                {% endif %}
-                            </div>
-                            <div class="col-sm-10">
-                                {{ tweet.body }} <br />
-                                <small class="text-muted">
-                                    ({{ tweet.created_at }}) By
-                                    <a href="{% url 'profile' tweet.user.profile.id %}">@{{tweet.user.username}}</a>
-                                    -
-                                    {% if user in tweet.likes.all %}
-                                    <a href="{% url 'tweet_like' tweet.id %}">
-                                        <i class="bi bi-heart-fill"
-                                            style="color: crimson; -webkit-text-stroke: 1px;"></i></a>
-                                    {% else %}
-                                    <a href="{% url 'tweet_like' tweet.id %}">
-                                        <i class="bi bi-heart"
-                                            style="color: crimson; -webkit-text-stroke: 1px;"></i></a>
-                                    {% endif %}
-                                    {{ tweet.number_of_likes }}
-                                    &nbsp;
-                                    <a href="{% url 'tweet_comment' tweet.pk %}">
-                                        <i class="bi bi-chat-text" style="color: black;"></i></a>
-                                    &nbsp;
-                                    <a href="{% url 'tweet_share' tweet.id %}">
-                                        <i class="bi bi-share" style="color: black;"></i></a>
-                                    &nbsp;
-                                    {% if user in tweet.bookmarks.all %}
-                                    <a href="{% url 'save_bookmark' tweet.id %}">
-                                        <i class="bi bi-bookmark-fill" style="color: #756f6f;"></i></a>
-                                    {% else %}
-                                    <a href="{% url 'save_bookmark' tweet.id %}">
-                                        <i class="bi bi-bookmark" style="color: #756f6f;"></i></a>
-                                    {% endif %}
-                                    {{ tweet.number_of_bookmarks }}
-                                </small>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Posts section -->
+    {% for tweet in tweets %}
+    <div class="tweetpost__section">
+        <div class="tweet__pfp">
+            {% if tweet.user.profile.profile_picture %}
+            <img src="{{ tweet.user.profile.profile_picture.url }}" alt="PFP" width="45" height="auto"
+                class="rounded-circle">
+            {% else %}
+            <img src="{% static 'images/default_profile.png' %}" alt="PFP" width="45" height="auto"
+                class="rounded-circle">
+            {% endif %}
+        </div>
+
+        <div class="tweet__body">
+            <div class="tweet__header">
+                <div class="tweet__headertext">
+                    {{ tweet.user.first_name }}
+                    <span class="material-icons verified-badge">verified</span> <a href="#" class="tweet__username">@{{ tweet.user.username }}</a> - ({{ tweet.created_at }})
                 </div>
-                <br />
-                {% endfor %}
+                <div class="tweetbody__description">
+                    <h4>{{ tweet.body }}</h4>
+                </div>
+            </div>
+
+            <div class="tweet__actions">
+                <a href="#">
+                    <span class="material-symbols-rounded">comment</span>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-rounded repost">repeat</span>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-rounded like">favorite</span>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-rounded">bookmark</span>
+                </a>
             </div>
         </div>
     </div>
-
+    {% endfor %}
     {% endblock %}
 </body>
 

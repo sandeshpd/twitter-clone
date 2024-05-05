@@ -1,15 +1,29 @@
-{% extends 'base.html' %}
-{% block content %}
-<br />
-<div class="col-md-6 offset-md-3">
-    <h1>Sign Up</h1>
-    <br />
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <br />
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-    </form>
-</div>
+{% extends 'bare_base.html' %}
 
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Sign Up
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block content %}
+    <div class="col-md-6 offset-md-3">
+        <h1 style="font-size: 46px;">Sign Up</h1>
+        <br />
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br />
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
+<br />

@@ -1,0 +1,68 @@
+{% load static %}
+
+<!-- <div class="wrapper"> -->
+<nav class="sidebar">
+    <ul class="navbar">
+        <li class="navbar-brand">
+            <i class="bi bi-twitter-x"></i>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'home' %}" class="google-icons">
+                <span class="material-symbols-outlined">home</span>
+                <a href="{% url 'home' %}" class="item-link">Home</a>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'search_user' %}" class="google-icons">
+                <span class="material-symbols-outlined">search</span>
+                <a href="{% url 'search_user' %}" class="item-link">Explore</a>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'tweet_bookmark' %}" class="google-icons">
+                <span class="material-symbols-outlined">bookmark</span>
+                <a href="{% url 'tweet_bookmark' %}" class="item-link">Bookmarks</a>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'profile' request.user.id %}" class="google-icons">
+                <span class="material-symbols-outlined">person</span>
+                <a href="{% url 'profile'  request.user.id %}" class="item-link">Profile</a>
+
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'logout' %}" class="google-icons">
+                <span class="material-symbols-outlined">logout</span>
+                <a href="{% url 'logout' %}" class="item-link">Logout</a>
+
+            </a>
+        </li>
+        
+        <a href="#" class="post-tweet-btn">
+            <i class="bi bi-feather"></i>
+            <div class="text">Post</div>
+        </a>
+    </ul>
+
+    <a href="#" class="profile-button">
+        <div class="profile-info">
+
+            <img src="{% static './images/default_profile.png' %}" alt="PFP" class="profile-img" width="35" height="35">
+            <div>
+                <p class="name">{{ profile.user.first_name }}</p>
+                <p class="username">@{{ profile.user.username }}</p>
+            </div>
+        </div>
+        <div class="option-icon">
+            <i class="bi bi-three-dots"></i>
+        </div>
+    </a>
+
+</nav>
+
+<!-- Put "home.html" content here inside wrapper section 
+            after sidebar section so it'd get aligned along side 
+            sidebar -->
+
+<!-- </div> -->
