@@ -1,3 +1,60 @@
+@import url('../css/sidebar.css');
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('/static/fonts/google-sans/ProductSans-Regular.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Product Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.verified-badge {
+    vertical-align: -20%;
+    font-size: 16px;
+    padding: 0%;
+    margin-top: 6px;
+    margin-right: 2px;
+    color: #1da1f2;
+}
+
+.tweet__username {
+    font-size: medium;
+    font-weight: 600;
+    color: grey;
+}
+
+.material-symbols-rounded {
+    font-variation-settings: 
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    color: #3b3a3a;
+    transition: none;
+    padding: 5px;
+}
+
+.material-symbols-rounded:hover {
+    background-color: #dcf0fd;
+    color: #1da1f2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.repost:hover {
+    color: rgb(75, 197, 75);
+}
+
+.like:hover {
+    color: crimson;
+    background:  rgb(220, 200, 200);
+}
+
 #btn_unfollow {
     --bs-btn-padding-y: .25rem;
     --bs-btn-padding-x: .4rem;
@@ -10,4 +67,112 @@
     --bs-btn-padding-x: .4rem;
     font-size: .80rem;
     border-radius: 30px;
+}
+
+.base__container {
+    display: flex;
+}
+
+.alert-top-right {
+    position: fixed;
+    /* Keep the alert fixed on the screen */
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+}
+
+.timeline {
+    flex: 0.7;
+    margin-left: 260px;
+    padding: 0 10px;
+    border-right: 1px solid #ddd;
+    overflow-y: scroll;
+    min-width: fit-content;
+    height: 100vh;
+}
+
+.timeline__header {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+}
+
+.tweetbox__section {
+    padding-bottom: 15px;
+    border-bottom: 3px solid #ddd;
+}
+
+img.tb__pfp {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 5px 0;
+}
+
+.tweetbox__section form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tweetbox__input__section {
+    display: flex;
+    padding: 15px;
+}
+
+button.tweetPost {
+    float: inline-end;
+    background-color: var(--postBtnBg);
+    border: 1px solid #1da1f2;
+    border-radius: 30px;
+    color: whitesmoke;
+    width: 70px;
+    padding: 4px 0;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.tweetPost:hover {
+    background: #1da1f2ee;
+}
+
+.tweetpost__section {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.tweetpost__section:hover {
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.tweet__pfp {
+    padding: 10px;
+}
+
+.tweet__headertext {
+    margin-bottom: 5px;
+}
+
+.tweet__body {
+    flex: 0.75;
+    padding: 10px;
+}
+
+.tweet__actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1000px) {
+    .timeline {
+        margin-left: 60px;
+    }
 }
