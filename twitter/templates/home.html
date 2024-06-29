@@ -54,7 +54,9 @@
             <div class="tweet__header">
                 <div class="tweet__headertext">
                     {{ tweet.user.first_name }}
-                    <span class="material-icons verified-badge">verified</span> <a href="#" class="tweet__username">@{{ tweet.user.username }}</a> - ({{ tweet.created_at }})
+                    <span class="material-icons verified-badge">verified</span> 
+                    <a href="#" class="tweet__username">
+                        @{{ tweet.user.username }}</a> - ({{ tweet.created_at }})
                 </div>
                 <div class="tweetbody__description">
                     <h4>{{ tweet.body }}</h4>
@@ -62,18 +64,35 @@
             </div>
 
             <div class="tweet__actions">
-                <a href="#">
-                    <span class="material-symbols-rounded">comment</span>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-rounded repost">repeat</span>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-rounded like">favorite</span>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-rounded">bookmark</span>
-                </a>
+                <div class="action_item">
+                    <a href="#">
+                        <span class="material-symbols-rounded">comment</span>
+                    </a>
+                </div>
+                <div class="action_item">
+                    <a href="#">
+                        <span class="material-symbols-rounded repost">repeat</span>
+                    </a>
+                </div>
+                <div class="action_item">
+                    {% if user in tweet.likes.all %}
+                    <a href="{% url 'tweet_like' tweet.id %}">
+                        <span class="material-symbols-rounded liked">favorite</span>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'tweet_like' tweet.id %}">
+                        <span class="material-symbols-rounded like">favorite</span>
+                    </a>
+                    {% endif %}
+                    <span class="likes_counter">
+                        {{ tweet.number_of_likes }}
+                    </span>
+                </div>
+                <div class="action_item">
+                    <a href="#">
+                        <span class="material-symbols-rounded">bookmark</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
