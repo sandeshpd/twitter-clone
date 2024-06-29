@@ -18,9 +18,9 @@ def home(request):
                 tweet.save()
                 messages.success(request, ('Your tweet has been posted!'))
                 return redirect('home')
-
+            
         tweets = Tweet.objects.all().order_by('-created_at')
-        return render(request, 'home.html', {'tweets':tweets, 'form':form})
+        return render(request, 'home.html', {'form':form, 'tweets':tweets})
     else:
         messages.success(request, ('You must log in to proceed.'))
         return redirect('login')
