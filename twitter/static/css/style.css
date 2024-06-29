@@ -26,7 +26,7 @@
 }
 
 .material-symbols-rounded {
-    font-variation-settings: 
+    font-variation-settings:
         'FILL' 0,
         'wght' 400,
         'GRAD' 0,
@@ -37,6 +37,7 @@
     color: #3b3a3a;
     transition: none;
     padding: 5px;
+    vertical-align: middle;
 }
 
 .material-symbols-rounded:hover {
@@ -52,8 +53,28 @@
 
 .like:hover {
     color: crimson;
-    background:  rgb(220, 200, 200);
+    background: rgb(220, 200, 200);
 }
+
+span.liked {
+    font-size: 24px;
+    font-variation-settings: 'FILL' 1;
+    color: crimson;
+}
+
+.liked:hover {
+    color: crimson;
+    background: rgb(220, 200, 200);
+}
+
+.likes_counter {
+    margin-left: 2px;
+    /* font-size: 24px; */
+    line-height: 2;
+    position: relative;
+    top: 8px;
+}
+
 
 #btn_unfollow {
     --bs-btn-padding-y: .25rem;
@@ -133,7 +154,7 @@ button.tweetPost {
     color: whitesmoke;
     width: 70px;
     padding: 4px 0;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: large;
 }
 
@@ -170,6 +191,12 @@ button.tweetPost {
     display: flex;
     justify-content: space-between;
 }
+
+.action_item {
+    display: flex;
+    align-items: center;
+}
+
 
 @media screen and (max-width: 1000px) {
     .timeline {
