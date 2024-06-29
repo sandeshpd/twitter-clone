@@ -60,7 +60,8 @@ class TweetForm(forms.ModelForm):
                                attrs={
                                    'placeholder': 'What is happening?!',
                                    'class': 'tweetbox__input',
-                                   'style': 'flex: 1; margin-top: 10px; margin-left: 10px; border: none; outline: none; width: 100%;',
+                                   # 'style': 'box-sizing: border-box; padding: 0; padding-top: 2px; padding-left: 2px; text-align: left; width: 50em; height: 5em; vertical-align: top;'
+                                   'style': 'flex: 1; margin-top: 10px; margin-left: 10px; border: none; outline: 1px solid #ddd; width: 50em; height: 5em; ',
                                }
                            ),
                            label='',
