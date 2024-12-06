@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Product Sans';
+    src: url('/static/fonts/google-sans/ProductSans-Regular.ttf') format('truetype');
+    font-family: 'Product Sans Bold';
+    src: url('/static/fonts/google-sans/ProductSans-Bold.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Product Sans', sans-serif;
+}
+
+:root {
+    --md-outlined-text-field-container-shape: 30px;
+    --md-outlined-text-field-label-text-font: 'Product Sans', sans-serif;
+    --md-outlined-text-field-input-text-font: 'Product Sans', sans-serif;
+    --md-outlined-text-field-input-text-size: 16px;
+    --md-outlined-text-field-label-text-size: 16px;
+    --md-outlined-text-field-focus-outline-color: #1DA1F2;
+    --md-outlined-text-field-focus-label-text-color: #1DA1F2;
+    --md-outlined-text-field-outline-color: #b4b2b2;
+    --md-outlined-text-field-hover-outline-color: #888686;
+    --md-filled-button-container-color: #1DA1F2;
+}
+
+
+.md-text-field__input {
+    width: 100%;
+    margin: 15px 0;
+    font-family: 'Product Sans', sans-serif;
+}
+
+.md-filled-button {
+    /* background-color: var(--md-filled-button-container-color); */
+    background-color: var(--md-filled-button-container-color);
+    float: right;
+    width: 100%;
+}
