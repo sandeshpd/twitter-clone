@@ -1,0 +1,10 @@
+# Files that you want Git to ignore would be placed here
+
+# Virtual environment
+.venv/
+
+# IDE specific file
+.vscode/
+
+# Python files
+__pycache__
