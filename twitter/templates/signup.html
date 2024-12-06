@@ -16,14 +16,53 @@
     <div class="col-md-6 offset-md-3">
         <h1 style="font-size: 46px;">Sign Up</h1>
         <br />
-        <form method="POST" action="">
+        <form method="POST" action="" class="signup_form">
             {% csrf_token %}
-            {{ form.as_p }}
+            <!-- {{ form.as_p }} -->
+            {% for field in form %}
+            <div class="md-text-field md-text-field--filled">
+                <md-outlined-text-field 
+                    class="md-text-field__input"
+                    label="{{ field.label }}"></md-outlined-text-field>
+            </div>
+            {% endfor %}
+            <!-- TODO: Set poassword field to <type="password"> -->
+            <!-- <div class="md-text-field md-text-field--filled">
+                <md-outlined-text-field
+                    class="md-text-field__input"
+                    label="{{ form.first_name }}"></md-outlined-text-field>
+            </div>
+            <div class="md-text-field md-text-field--filled">
+                <md-outlined-text-field
+                    class="md-text-field__input"
+                    label="{{ form.last_name }}">{{ form.last_name }}</md-outlined-text-field>
+            </div>
+            <div class="md-text-field md-text-field--filled">
+                <md-outlined-text-field
+                    class="md-text-field__input"
+                    label="{{ form.username }}">{{ form.username }}</md-outlined-text-field>
+            </div>
+            <div class="md-text-field md-text-field--filled">
+                <md-outlined-text-field
+                    class="md-text-field__input"
+                    label="{{ form.email }}">{{ form.email }}</md-outlined-text-field>
+            </div>
+            <div class="md-text-field md-text-field--filled">
+                <md-outlined-text-field
+                    class="md-text-field__input"
+                    type="password">{{ form.password1 }}</md-outlined-text-field>
+            </div>
+            <div class="md-text-field md-text-field--filled">
+                <md-outlined-text-field
+                    class="md-text-field__input"
+                    type="password">{{ form.password2 }}</md-outlined-text-field>
+            </div> -->
             <br />
-            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <md-filled-button 
+                type="submit"
+                class="md-filled-button">Sign Up</md-filled-button>
         </form>
     </div>
     {% endblock %}
 </body>
 </html>
-<br />
