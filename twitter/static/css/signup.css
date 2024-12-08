@@ -6,6 +6,9 @@
 }
 
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Product Sans', sans-serif;
 }
 
@@ -22,9 +25,27 @@
     --md-filled-button-container-color: #1DA1F2;
 }
 
+a.redirect-to-login {
+    display: inline-block;
+}
 
-.md-text-field__input {
+.bi-twitter-x {
+    color: #000;
+    font-size: 35px;
+    padding: 8px 10px 8px 13px;
+    border-radius: 50%;
+}
+
+.bi-twitter-x:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+md-outlined-text-field {
     width: 100%;
+}
+
+.md-text-field--outlined {
     margin: 15px 0;
     font-family: 'Product Sans', sans-serif;
 }
