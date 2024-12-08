@@ -163,7 +163,6 @@ def signup_user(request):
         if request.method == 'POST':
             form = SignUpForm(request.POST)
             if form.is_valid():
-                print(form.errors)
                 form.save()
                 username = form.cleaned_data['username']
                 password = form.cleaned_data['password1']
@@ -175,7 +174,8 @@ def signup_user(request):
                 return redirect('home')
             else:
                 messages.error(request, ('Something went wrong. Please Try again.'))
-                print('something\'s wrong with this form. this form is not valid.')
+                print('Something\'s wrong with this form. this form is not valid.')
+                print(form.errors)
                 return render(request, 'signup.html', {'form': form})
         else:
             form = SignUpForm()
