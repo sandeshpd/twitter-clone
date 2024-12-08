@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,58 +12,111 @@
         {% endblock %}
     </title>
 </head>
+
 <body>
     {% block content %}
+    <a href="{% url 'login' %}" class="redirect-to-login">
+        <i class="bi bi-twitter-x"></i>
+    </a>
     <div class="col-md-6 offset-md-3">
         <h1 style="font-size: 46px;">Sign Up</h1>
         <br />
         <form method="POST" action="" class="signup_form">
             {% csrf_token %}
-            <!-- {{ form.as_p }} -->
-            {% for field in form %}
-            <div class="md-text-field md-text-field--filled">
+            <!-- First Name Text Field -->
+            <div class="md-text-field md-text-field--outlined">
                 <md-outlined-text-field 
-                    class="md-text-field__input"
-                    label="{{ field.label }}"></md-outlined-text-field>
+                    id="first_name"
+                    label="Enter First Name" 
+                    type="text"
+                    name="first_name"
+                    class="md-text-field__input"></md-outlined-text-field>
+                {% if form.first_name.errors %}
+                <div class="error">
+                    {{ form.first_name.errors }}
+                </div>
+                {% endif %}
             </div>
-            {% endfor %}
-            <!-- TODO: Set poassword field to <type="password"> -->
-            <!-- <div class="md-text-field md-text-field--filled">
+            
+            <!-- Last Name Text Field -->
+            <div class="md-text-field md-text-field--outlined">
                 <md-outlined-text-field
-                    class="md-text-field__input"
-                    label="{{ form.first_name }}"></md-outlined-text-field>
+                    id="last_name" 
+                    label="Enter Last Name" 
+                    type="text"
+                    name="last_name"
+                    class="md-text-field__input"></md-outlined-text-field>
+                {% if form.last_name.errors %}
+                <div class="error">
+                    {{ form.last_name.errors }}
+                </div>
+                {% endif %}
             </div>
-            <div class="md-text-field md-text-field--filled">
+            
+            <!-- Username Text Field -->
+            <div class="md-text-field md-text-field--outlined">
                 <md-outlined-text-field
-                    class="md-text-field__input"
-                    label="{{ form.last_name }}">{{ form.last_name }}</md-outlined-text-field>
+                    id="username" 
+                    label="Enter Username" 
+                    type="text"
+                    name="username"
+                    class="md-text-field__input"></md-outlined-text-field>
+                {% if form.username.errors %}
+                <div class="error">
+                    {{ form.username.errors }}
+                </div>
+                {% endif %}
             </div>
-            <div class="md-text-field md-text-field--filled">
+            
+            <!-- Email Text Field -->
+            <div class="md-text-field md-text-field--outlined">
                 <md-outlined-text-field
-                    class="md-text-field__input"
-                    label="{{ form.username }}">{{ form.username }}</md-outlined-text-field>
+                    id="email" 
+                    label="Enter Email"
+                    type="text"
+                    name="email"
+                    class="md-text-field__input"></md-outlined-text-field>
+                {% if form.email.errors %}
+                <div class="error">
+                    {{ form.email.errors }}
+                </div>
+                {% endif %}
             </div>
-            <div class="md-text-field md-text-field--filled">
-                <md-outlined-text-field
-                    class="md-text-field__input"
-                    label="{{ form.email }}">{{ form.email }}</md-outlined-text-field>
+            
+            <!-- Password1 Text Field -->
+            <div class="md-text-field md-text-field--outlined">
+                <md-outlined-text-field 
+                    id="password1"
+                    label="Enter Password" 
+                    type="password"
+                    name="password1"
+                    class="md-text-field__input""></md-outlined-text-field>
+                {% if form.password1.errors %}
+                <div class="error">
+                    {{ form.password1.errors }}
+                </div>
+                {% endif %}
             </div>
-            <div class="md-text-field md-text-field--filled">
-                <md-outlined-text-field
-                    class="md-text-field__input"
-                    type="password">{{ form.password1 }}</md-outlined-text-field>
+            
+            <!-- Password2 Text Field -->
+            <div class="md-text-field md-text-field--outlined">
+                <md-outlined-text-field 
+                    id="password2"
+                    label="Confirm password"
+                    type="password"
+                    name="password2"
+                    class="md-text-field__input""></md-outlined-text-field>
+                {% if form.password2.errors %}
+                <div class="error">
+                    {{ form.password2.errors }}
+                </div>
+                {% endif %}
             </div>
-            <div class="md-text-field md-text-field--filled">
-                <md-outlined-text-field
-                    class="md-text-field__input"
-                    type="password">{{ form.password2 }}</md-outlined-text-field>
-            </div> -->
-            <br />
-            <md-filled-button 
-                type="submit"
-                class="md-filled-button">Sign Up</md-filled-button>
+            
+            <md-filled-button type="submit" class="md-filled-button">Sign Up</md-filled-button>
         </form>
     </div>
     {% endblock %}
 </body>
+
 </html>
