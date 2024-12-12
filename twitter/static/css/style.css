@@ -6,6 +6,9 @@
 }
 
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Product Sans', sans-serif;
     font-size: 1rem;
 }
@@ -93,6 +96,8 @@ span.liked {
 
 .base__container {
     display: flex;
+    position: fixed;
+    height: 100vh;
 }
 
 .alert-top-right {
@@ -112,6 +117,7 @@ span.liked {
     overflow-y:visible;
     min-width: fit-content;
     height: 100%;
+    width: 80vw;
 }
 
 .timeline__header {
