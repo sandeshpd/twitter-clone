@@ -24,7 +24,7 @@ This app is not yet live. To see how this app works or looks, follow below steps
   
   `source env/bin/activate` (activate virtual environment in Linux)
 
-  `env\Scripts\activate` (activate virtual environemtn in Widows)
+  `env\Scripts\activate` (activate virtual environment in Windows)
 
 * Navigate to the project directory if you haven't already:
 
