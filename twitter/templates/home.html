@@ -27,7 +27,7 @@
                 {% if tweet.user.profile.profile_picture %}
                 <img src="{{ tweet.user.profile.profile_picture.url }}" alt="PFP" class="tb__pfp">
                 {% else %}
-                <img src="{% static '/images/default_profile.png' %}" alt="PFP" class="tb__pfp">
+                <img src="{% static 'images/default_profile.jpeg' %}" alt="PFP" class="tb__pfp">
                 {% endif %}
                 {{ form.as_p }}
             </div>
@@ -45,7 +45,7 @@
             <img src="{{ tweet.user.profile.profile_picture.url }}" alt="PFP" width="45" height="auto"
                 class="rounded-circle">
             {% else %}
-            <img src="{% static 'images/default_profile.png' %}" alt="PFP" width="45" height="auto"
+            <img src="{% static 'images/default_profile.jpeg' %}" alt="PFP" width="45" height="auto"
                 class="rounded-circle">
             {% endif %}
         </div>
